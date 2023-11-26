@@ -1,14 +1,31 @@
 import Image from 'next/image'
 
 import { AnimeProps } from '@/types/interface'
+import { MotionArticle } from './motion'
 
 interface IProps {
   anime: AnimeProps
+  index: number
 }
+const variants = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1 },
+}
+const STAGGER = 0.25
 
-export default function Card({ anime }: IProps) {
+export default function Card({ anime, index }: IProps) {
   return (
-    <article className="w-full sm:max-w-sm">
+    <MotionArticle
+      variants={variants}
+      initial="hidden"
+      animate="visible"
+      transition={{
+        delay: index * STAGGER,
+        ease: 'easeInOut',
+        duration: 0.5,
+      }}
+      className="w-full sm:max-w-sm"
+    >
       <div className="w-full h-[37vh] relative">
         <Image
           src={anime.image.original}
@@ -53,6 +70,6 @@ export default function Card({ anime }: IProps) {
           </div>
         </div>
       </div>
-    </article>
+    </MotionArticle>
   )
 }
