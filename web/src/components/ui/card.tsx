@@ -1,10 +1,10 @@
 import Image from 'next/image'
 
-import { AnimeProps } from '@/types/interface'
+import { IAnimeProps } from '@/types/interface'
 import { MotionArticle } from './motion'
 
 interface IProps {
-  anime: AnimeProps
+  anime: IAnimeProps
   index: number
 }
 const variants = {
@@ -24,11 +24,12 @@ export default function Card({ anime, index }: IProps) {
         ease: 'easeInOut',
         duration: 0.5,
       }}
+      viewport={{ amount: 0 }}
       className="w-full sm:max-w-sm"
     >
       <div className="w-full h-[37vh] relative">
         <Image
-          src={anime.image.original}
+          src={`${process.env.NEXT_PUBLIC_SERVER_API}/${anime.image.original}`}
           alt={anime.name}
           fill
           className="rounded-xl"

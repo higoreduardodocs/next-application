@@ -1,4 +1,4 @@
-export interface AnimeProps {
+export interface IAnimeProps {
   id: string
   name: string
   image: { original: string }
