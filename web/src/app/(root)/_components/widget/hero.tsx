@@ -1,3 +1,5 @@
+'use client'
+
 import Image from 'next/image'
 import Button from '../ui/button'
 
@@ -9,7 +11,7 @@ export default function Hero() {
 
   return (
     <section className="hero">
-      <div className="flex-1 p-36">
+      <div className="flex-1 pt-36 padding-x">
         <h1 className="hero__title">
           Find, book, rent a car—quick and super easy!
         </h1>
@@ -22,6 +24,7 @@ export default function Hero() {
         <Button
           title="Explore Cars"
           containerStyles="bg-primary-blue text-white rounded-full mt-10"
+          handleClick={handleScroll}
         />
       </div>
 
